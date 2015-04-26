@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require lodash
+//= require backbone
+//= require json2
+//= require backbone.localStorage.js

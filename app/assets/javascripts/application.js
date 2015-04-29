@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-//= require lodash
+//= require underscore
 //= require backbone
+//= require lodash
 //= require json2
 //= require backbone.localStorage.js
+//= require_tree .

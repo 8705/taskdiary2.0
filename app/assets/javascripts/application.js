@@ -17,4 +17,9 @@
 //= require lodash
 //= require json2
 //= require backbone.localStorage.js
-//= require_tree .
+//= require backbonejs/setting
+//= require ./backbonejs/namespace.js
+//= require_tree ./backbonejs/models
+//= require_tree ./backbonejs/collections
+//= require_tree ./backbonejs/views
+//= require_tree ./templates

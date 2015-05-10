@@ -1,0 +1,25 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ul {
+  list-style: none;
+  padding:0px;
+}
+.edit {
+  display: none;
+}
+.todo-content {
+  display: inline-block;
+}
+.done .todo-content {
+  color: #777;
+  text-decoration: line-through;
+}
+.editing .display {
+  display: none;
+}
+.editing .edit {
+  display: block;
+}

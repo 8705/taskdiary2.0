@@ -1,3 +1,18 @@
+<h1>タスク一覧</h1>
+<table>
+    <% @tasks.each do |task| %>
+        <tr>
+            <td><%= task.title %></td>
+            <td><%= button_to '詳細', {controller:'tasks', id:task.id}, class:'btn', method:'get' %></td>
+            <td><%= button_to '削除', {controller:'tasks', id:task.id}, class:'btn', method:'delete' %></td>
+        </tr>
+    <% end %>
+</table>
+<%= form_for(@form_param, url: :tasks) do |f| %>
+    <%= f.text_field :title  %>
+    <%= f.submit '登録'   %>
+<% end %>
+
   <div id="todoapp">
 
     <header>

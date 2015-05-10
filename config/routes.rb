@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
-  get 'top/index'
+  get 'tasks/create'
+
+  get 'tasks/destroy'
+
+  get 'user/index'
+
+  get 'user/create'
+
+  get 'user/new'
+
+  get 'user/edit'
+
+  get 'user/show'
+
+  get 'user/update'
+
+  resources :login, :users, :tasks
+    # get 'top/index'
+  get '/' => 'top#index', as: :top_index
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

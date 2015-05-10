@@ -1,2 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+ul {
+  list-style: none;
+  padding:0px;
+}
+.edit {
+  display: none;
+}
+.todo-content {
+  display: inline-block;
+}
+.done .todo-content {
+  color: #777;
+  text-decoration: line-through;
+}
+.editing .display {
+  display: none;
+}
+.editing .edit {
+  display: block;
+}

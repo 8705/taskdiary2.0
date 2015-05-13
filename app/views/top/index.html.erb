@@ -9,10 +9,8 @@
 
     <div class="row">
       <div id="addTask" class="col-md-8 col-md-offset-2 form-inline">
-        <%= form_for(@form_param, url: :tasks, remote: true) do |f| %>
-          <%= f.text_field :title, id: 'new-todo', class: 'form-control input-lg', placeholder: 'What needs to be done?' %>
-          <%= f.submit 'Go', class: 'input-lg btn btn-default' %>
-        <% end %>
+        <input id="new-todo" class="form-control input-lg" type="text" placeholder="What needs to be done?">
+        <button tyle="submit" class="input-lg btn btn-default">GO</button>
       </div>
     </div>
     <div id="content" class="row">

@@ -6,7 +6,7 @@ MyApp.Collections.TodayList = Backbone.Collection.extend({
   model: MyApp.Models.Todo,
 
   // Save all of the todo items under the `"todos-backbone"` namespace.
-  //localStorage: new Backbone.LocalStorage("todos-backbone"),
+  // localStorage: new Backbone.LocalStorage("todos-backbone"),
   url: '/tasks',
 
   // Filter down the list of all todo items that are finished.
@@ -27,7 +27,19 @@ MyApp.Collections.TodayList = Backbone.Collection.extend({
   },
 
   // Todays are sorted by their original insertion order.
-  comparator: 'order'
+  comparator: 'order',
+
+  swap: function (idA, idB) {
+    var tmp, modelA, modelB;
+    modelA = this.get(idA);
+    modelB = this.get(idB);
+    if (modelA && modelB) {
+      tmp = modelA.get('order');
+      modelA.save('order', modelB.get('order'), {silent: true});
+      modelB.save('order', tmp, {silent: true});
+      this.sort();
+    }
+  },
 
 });
 

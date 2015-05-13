@@ -7,6 +7,7 @@ $(function(){
     //... is a list tag.
     tagName:  "li",
     className : "list-group-item",
+    attributes : {'draggable':true},
 
     // Cache the template function for a single item.
     template: _.template($('#item-template').html()),
@@ -23,6 +24,8 @@ $(function(){
       "dragend"         : "onDragEnd",
       "drop"            : "onDrop",
       "dragover"        : "onDragOver",
+      "dragenter"       : "onDragEnter",
+      "dragleave"       : "onDragLeave",
     },
 
     // The TodoView listens for changes to its model, re-rendering. Since there's
@@ -71,6 +74,43 @@ $(function(){
     // Remove the item, destroy the model.
     clear: function() {
       this.model.destroy();
+    },
+
+    onDragStart: function (e) {
+      this.moving = true;
+      this.$el.addClass('moving');
+      this.el.style.opacity = '0.4';
+      e.originalEvent.dataTransfer.setData('application/x-todo-id',
+                                           this.model.id);
+    },
+
+    onDragEnd: function () {
+      this.moving = false;
+      this.$el.removeClass('moving');
+    },
+
+    onDrop: function (e) {
+      e.preventDefault();
+      // 自分自身へドロップした場合は何もしない
+      if (!this.moving) {
+        var id, model, tmp;
+        id = e.originalEvent.dataTransfer.getData('application/x-todo-id');
+        // console.log(id, this.model.id);
+        this.model.collection.swap(id, this.model.id);
+      }
+    },
+
+    onDragOver: function (e) {
+      // ドロップ可能にする
+      e.preventDefault();
+    },
+
+    onDragEnter: function(e) {
+      this.$el.addClass("over");
+    },
+
+    onDragLeave:function(e) {
+      this.$el.removeClass("over");
     }
 
   });

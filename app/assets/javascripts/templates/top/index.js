@@ -23,10 +23,13 @@ $(function(){
 
       this.listenTo(Todays, 'add', this.addOne);
       this.listenTo(Todays, 'reset', this.addAll);
+      this.listenTo(Todays, 'sort', this.reorder);
       this.listenTo(Todays, 'all', this.render);
 
       this.footer = this.$('footer');
       this.main = $('#main');
+
+      this.todaysList = $("#todayTasks");
 
       Todays.fetch();
     },
@@ -50,12 +53,17 @@ $(function(){
     // appending its element to the `<ul>`.
     addOne: function(todo) {
       var view = new MyApp.Views.Task({model: todo});
-      this.$("#todayTasks").append(view.render().el);
+      this.todaysList.append(view.render().el);
     },
 
     // Add all items in the **Todays** collection at once.
     addAll: function() {
       Todays.each(this.addOne, this);
+    },
+
+    reorder: function() {
+      this.todaysList.html('');
+      this.addAll();
     },
 
     // If you hit return in the main input field, create new **Todo** model,

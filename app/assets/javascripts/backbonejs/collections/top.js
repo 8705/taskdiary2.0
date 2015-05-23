@@ -29,7 +29,7 @@ MyApp.Collections.TodayList = Backbone.Collection.extend({
   // Todays are sorted by their original insertion seq.
   comparator: 'seq',
 
-  swap: function (idA, idB) {
+  reorder: function (idA, idB) {
     var tmp, modelA, modelB,insert;
     modelA = this.get(idA);
     modelB = this.get(idB);

@@ -6,7 +6,8 @@
       return {
         title: "empty todo...",
         seq: Todays.nextSeq(),
-        done_at: null
+        done_at: null,
+        status: 0,
       };
     },
 

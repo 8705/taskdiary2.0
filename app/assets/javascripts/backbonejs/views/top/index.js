@@ -96,7 +96,7 @@ $(function(){
         var id, model, tmp;
         id = e.originalEvent.dataTransfer.getData('application/x-todo-id');
         // console.log(id, this.model.id);
-        this.model.collection.swap(id, this.model.id);
+        this.model.collection.reorder(id, this.model.id);
       }
     },
 

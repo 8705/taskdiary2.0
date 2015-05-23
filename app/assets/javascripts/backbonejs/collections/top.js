@@ -21,22 +21,31 @@ MyApp.Collections.TodayList = Backbone.Collection.extend({
 
   // We keep the Todays in sequential order, despite being saved by unordered
   // GUID in the database. This generates the next order number for new items.
-  nextOrder: function() {
+  nextSeq: function() {
     if (!this.length) return 1;
-    return this.last().get('order') + 1;
+    return this.last().get('seq') + 1;
   },
 
-  // Todays are sorted by their original insertion order.
-  comparator: 'order',
+  // Todays are sorted by their original insertion seq.
+  comparator: 'seq',
 
   swap: function (idA, idB) {
-    var tmp, modelA, modelB;
+    var tmp, modelA, modelB,insert;
     modelA = this.get(idA);
     modelB = this.get(idB);
+    debugger;
+    insert = modelB.get('seq');
     if (modelA && modelB) {
-      tmp = modelA.get('order');
-      modelA.save('order', modelB.get('order'), {silent: true});
-      modelB.save('order', tmp, {silent: true});
+      modelA.save('seq', insert, {silent: true});
+
+      _.each(this.models, function(model){
+        if(model.get("seq") >= insert && model !== modelA) {
+
+          model.save('seq', model.get('seq') + 1);
+
+        }
+      });
+
       this.sort();
     }
   },

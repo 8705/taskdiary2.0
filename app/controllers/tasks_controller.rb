@@ -19,12 +19,13 @@ class TasksController < ApplicationController
     now = params[:done_at] ? Date.today.to_s : nil
     task.update!(title:params[:title], done_at:now)
 
-    redirect_to :controller => "top", :action => "index"
+    render json: true
   end
 
   def destroy
     Task.delete_all(id:params[:id])
-    redirect_to :controller => "top", :action => "index"
+
+    render json: true
   end
 
   private

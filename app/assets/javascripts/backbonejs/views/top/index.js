@@ -16,7 +16,7 @@ $(function(){
     events: {
       "click .check"   : "toggleDone",
       "dblclick .todo-content"  : "edit",
-      "click a.destroy" : "clear",
+      "click .todo-destroy" : "clear",
       "keypress .edit"  : "updateOnEnter",
       "blur .edit"      : "close",
 

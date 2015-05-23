@@ -76,7 +76,7 @@ $(function(){
       task_status = this.task_status.prop('checked') ? 1 : 0;
       Todays.create({title: this.task_title.val(), status: task_status});
       this.task_title.val('');
-      this.task_status.prop('checked', false);;
+      this.task_status.prop('checked', false);
     },
 
     // Clear all done todo items, destroying their models.

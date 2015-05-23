@@ -5,8 +5,9 @@
     defaults: function() {
       return {
         title: "empty todo...",
-        order: Todays.nextOrder(),
-        done_at: null
+        seq: Todays.nextSeq(),
+        done_at: null,
+        status: 0,
       };
     },
 

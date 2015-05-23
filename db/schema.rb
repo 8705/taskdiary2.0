@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150509020417) do
   create_table "tasks", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "title",      limit: 255
+    t.integer  "seq",        limit: 4
     t.integer  "status",     limit: 4
     t.datetime "done_at"
     t.datetime "created_at",             null: false

@@ -84,7 +84,7 @@ $(function(){
 
     toggleAllComplete: function () {
       var done = this.allCheckbox.checked;
-      Todays.each(function (todo) { todo.save({'done': done}); });
+      Todays.each(function (todo) { todo.save({'done': MyApp.Helper.now()}); });
     }
 
   });

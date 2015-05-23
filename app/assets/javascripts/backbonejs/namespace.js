@@ -3,5 +3,6 @@ var MyApp = {
   Collections: {},
   Views: {},
   App: {},
-  Templates: {}
+  Templates: {},
+  Helper:{}
 };

@@ -11,12 +11,12 @@ MyApp.Collections.TodayList = Backbone.Collection.extend({
 
   // Filter down the list of all todo items that are finished.
   done: function() {
-    return this.where({done: true});
+    return this.where({done: !null});
   },
 
   // Filter down the list to only todo items that are still not finished.
   remaining: function() {
-    return this.where({done: false});
+    return this.where({done: null});
   },
 
   // We keep the Todays in sequential order, despite being saved by unordered

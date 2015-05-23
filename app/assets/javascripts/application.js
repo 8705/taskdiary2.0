@@ -20,6 +20,7 @@
 //= require backbone.localStorage.js
 //= require backbonejs/setting
 //= require ./backbonejs/namespace.js
+//= require ./backbonejs/helper.js
 //= require_tree ./backbonejs/models
 //= require_tree ./backbonejs/collections
 //= require_tree ./backbonejs/views

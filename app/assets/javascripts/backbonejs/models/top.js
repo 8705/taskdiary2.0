@@ -1,8 +1,6 @@
 // Our basic **Todo** model has `title`, `order`, and `done` attributes.
   MyApp.Models.Todo = Backbone.Model.extend({
 
-    url: "/tasks",
-
     // Default attributes for the todo item.
     defaults: function() {
       return {

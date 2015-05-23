@@ -6,7 +6,6 @@ class TasksController < ApplicationController
 
   def show
     task = Task.find(params[:id])
-    # @form_param = Task.new
   end
 
   def create
@@ -16,7 +15,10 @@ class TasksController < ApplicationController
 
   def update
     task = Task.find(params[:id])
-    task.update!(title:params[:title])
+
+    now = params[:done_at] ? Date.today.to_s : nil
+    task.update!(title:params[:title], done_at:now)
+
     redirect_to :controller => "top", :action => "index"
   end
 

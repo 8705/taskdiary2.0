@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
 
     now = params[:done_at] ? Date.today.to_s : nil
-    task.update!(title:params[:title], done_at:now)
+    task.update!(title:params[:title], seq:params[:seq], done_at:now)
 
     render json: true
   end
@@ -31,6 +31,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.required(:task).permit(:title, :status)
+    params.required(:task).permit(:title, :status,:seq,:done_at)
   end
 end

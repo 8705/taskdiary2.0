@@ -30,21 +30,32 @@ MyApp.Collections.TodayList = Backbone.Collection.extend({
   comparator: 'seq',
 
   reorder: function (idA, idB) {
-    var tmp, modelA, modelB,insert;
-    modelA = this.get(idA);
-    modelB = this.get(idB);
-    debugger;
-    insert = modelB.get('seq');
-    if (modelA && modelB) {
-      modelA.save('seq', insert, {silent: true});
+    var from, modelA, modelB,to;
+    modelA  = this.get(idA);
+    modelB  = this.get(idB);
+    to      = modelB.get('seq');
+    from    = modelA.get("seq");
 
-      _.each(this.models, function(model){
-        if(model.get("seq") >= insert && model !== modelA) {
+    if ( modelA && modelB ) {
+      modelA.save('seq', to, {silent: true});
+      if ( from > to )
+      {
+        _.each(this.models, function(model){
+          if ( model.get("seq") >= to && model.get("seq") < from && model !== modelA ) {
+            model.save('seq', model.get('seq') + 1);
 
-          model.save('seq', model.get('seq') + 1);
+          }
+        });
+      }
+      else
+      {
+        _.each(this.models, function(model){
+          if ( model.get("seq") >= from && model.get("seq") <= to && model !== modelA ) {
+            model.save('seq', model.get('seq') - 1);
 
-        }
-      });
+          }
+        });
+      }
 
       this.sort();
     }

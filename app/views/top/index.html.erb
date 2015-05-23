@@ -30,7 +30,7 @@
       {{if (status !== 1) { }}
         <input class="check" type="checkbox" {{= done_at !== null ? 'checked="checked"':''}} />
       {{ } }}
-      <div class="todo-content">{{- title }}</div><span>{{- done_at}}</span>
+      <div class="todo-content">{{- title }}</div><span>{{- done_at}}</span><span>【{{- seq }}】</span>
       <span class="todo-destroy glyphicon glyphicon-remove-circle"></span>
     </div>
     <input class="edit" type="text" value="{{- title }}" />

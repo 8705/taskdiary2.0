@@ -26,5 +26,8 @@ ul {
 
 // DnD
 .over {
-	border:3px dotted #000;
+	border:3px dotted #F97676 !important;
+}
+.moving {
+	opacity:0.4;
 }

@@ -12,6 +12,8 @@ $(function(){
     // Cache the template function for a single item.
     template: _.template($('#item-template').html()),
 
+    counter: 0,
+
     // The DOM events specific to an item.
     events: {
       "click .check"   : "toggleDone",
@@ -51,7 +53,11 @@ $(function(){
 
     // Switch this view into `"editing"` mode, displaying the input field.
     edit: function() {
+      var val;
       this.$el.addClass("editing");
+      val = this.input.val();
+      this.input.val('');
+      this.input.val(val);
       this.input.focus();
     },
 
@@ -79,9 +85,7 @@ $(function(){
     onDragStart: function (e) {
       this.moving = true;
       this.$el.addClass('moving');
-      this.el.style.opacity = '0.4';
-      e.originalEvent.dataTransfer.setData('application/x-todo-id',
-                                           this.model.id);
+      e.originalEvent.dataTransfer.setData('application/x-todo-id',this.model.id);
     },
 
     onDragEnd: function () {
@@ -93,9 +97,7 @@ $(function(){
       e.preventDefault();
       // 自分自身へドロップした場合は何もしない
       if (!this.moving) {
-        var id, model, tmp;
-        id = e.originalEvent.dataTransfer.getData('application/x-todo-id');
-        // console.log(id, this.model.id);
+        var id = e.originalEvent.dataTransfer.getData('application/x-todo-id');
         this.model.collection.reorder(id, this.model.id);
       }
     },
@@ -106,11 +108,15 @@ $(function(){
     },
 
     onDragEnter: function(e) {
+      this.counter++;
       this.$el.addClass("over");
     },
 
     onDragLeave:function(e) {
-      this.$el.removeClass("over");
+      this.counter--;
+      if(this.counter === 0) {
+        this.$el.removeClass("over");
+      }
     }
 
   });

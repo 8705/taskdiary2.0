@@ -10,7 +10,8 @@ class TasksController < ApplicationController
 
   def create
     Task.create!(task_params)
-    redirect_to :controller => "top", :action => "index"
+
+    render json: true
   end
 
   def update
@@ -31,5 +32,6 @@ class TasksController < ApplicationController
   private
   def task_params
     params.required(:task).permit(:title)
+    params.required(:task).permit(:status)
   end
 end

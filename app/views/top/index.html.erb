@@ -9,7 +9,8 @@
 
     <div class="row">
       <div id="addTask" class="col-md-8 col-md-offset-3 form-inline">
-        <input id="new-todo" class="form-control input-lg" type="text" placeholder="What needs to be done?">
+        <input id="task_status" type="checkbox" value="1">
+        <input id="task_title" class="form-control input-lg" type="text" placeholder="What needs to be done?">
         <button tyle="submit" class="input-lg btn btn-default">GO</button>
       </div>
     </div>
@@ -24,9 +25,11 @@
 
 <script type="text/template" id="template-header"></script>
   <script type="text/template" id="item-template">
-  <div class="todo {{= done_at !== null ? 'done':''}}">
+  <div class="todo {{= done_at !== null ? 'done':''}}" {{= status === 1 ? "style='background-color: #DDD;'": "" }}>
     <div class="display" title="ダブルクリックして編集...">
-      <input class="check" type="checkbox" {{= done_at !== null ? 'checked="checked"':''}} />
+      {{if (status !== 1) { }}
+        <input class="check" type="checkbox" {{= done_at !== null ? 'checked="checked"':''}} />
+      {{ } }}
       <div class="todo-content">{{- title }}</div><span>{{- done_at}}</span>
       <span class="todo-destroy glyphicon glyphicon-remove-circle"></span>
     </div>

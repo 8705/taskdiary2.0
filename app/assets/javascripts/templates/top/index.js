@@ -9,7 +9,7 @@ $(function(){
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-      "keypress #new-todo":  "createOnEnter",
+      "keypress #task_title":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete"
     },
@@ -19,7 +19,8 @@ $(function(){
     // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
 
-      this.input = this.$("#new-todo");
+      this.task_title  = this.$("#task_title");
+      this.task_status = this.$("#task_status");
 
       this.listenTo(Todays, 'add', this.addOne);
       this.listenTo(Todays, 'reset', this.addAll);
@@ -70,10 +71,12 @@ $(function(){
     // persisting it to *localStorage*.
     createOnEnter: function(e) {
       if (e.keyCode != 13) return;
-      if (!this.input.val()) return;
+      if (!this.task_title.val()) return;
 
-      Todays.create({title: this.input.val()});
-      this.input.val('');
+      task_status = this.task_status.prop('checked') ? 1 : 0;
+      Todays.create({title: this.task_title.val(), status: task_status});
+      this.task_title.val('');
+      this.task_status.prop('checked', false);;
     },
 
     // Clear all done todo items, destroying their models.

@@ -74,7 +74,11 @@ $(function(){
       if (!this.task_title.val()) return;
 
       task_status = this.task_status.prop('checked') ? 1 : 0;
-      Todays.create({title: this.task_title.val(), status: task_status});
+      Todays.create({title: this.task_title.val(), status: task_status},
+                    {
+                      success:function(model, response, options){
+                        model.sync_id(response);
+                    }});
       this.task_title.val('');
       this.task_status.prop('checked', false);
     },

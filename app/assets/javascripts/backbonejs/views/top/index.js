@@ -83,9 +83,11 @@ $(function(){
     },
 
     onDragStart: function (e) {
+      var id;
       this.moving = true;
       this.$el.addClass('moving');
-      e.originalEvent.dataTransfer.setData('application/x-todo-id',this.model.id);
+      cid = this.model.cid;
+      e.originalEvent.dataTransfer.setData('application/x-todo-cid',cid);
     },
 
     onDragEnd: function () {
@@ -94,11 +96,15 @@ $(function(){
     },
 
     onDrop: function (e) {
+      var id, this_id;
       e.preventDefault();
       // 自分自身へドロップした場合は何もしない
       if (!this.moving) {
-        var id = e.originalEvent.dataTransfer.getData('application/x-todo-id');
-        this.model.collection.reorder(id, this.model.id);
+        // idがない場合はcidで識別/サーバーから再フェッチするまでは新しく追加した要素にidは存在しない。
+        // createの応答jsonでid投げ返しても良いかもしれない
+        cid      = e.originalEvent.dataTransfer.getData('application/x-todo-cid');
+        this_cid = this.model.cid;
+        this.model.collection.reorder(cid, this_cid);
       }
     },
 

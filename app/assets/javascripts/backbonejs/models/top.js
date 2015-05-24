@@ -15,6 +15,10 @@
       return this.get("done_at") !== null;
     },
 
+    sync_id: function(id){
+      this.save('id', id, {silent: true});
+    },
+
     // Toggle the `done_at` state of this todo item.
     toggle: function() {
       if ( this.is_done() ) {

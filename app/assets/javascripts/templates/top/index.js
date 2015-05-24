@@ -33,6 +33,7 @@ $(function(){
       this.todaysList = $("#todayTasks");
 
       Todays.fetch();
+      this.task_title.focus();
     },
 
     // Re-rendering the App just means refreshing the statistics -- the rest

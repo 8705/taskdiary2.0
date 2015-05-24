@@ -93,6 +93,7 @@ $(function(){
     onDragEnd: function () {
       this.moving = false;
       this.$el.removeClass('moving');
+      this.$el.removeClass('over');
     },
 
     onDrop: function (e) {

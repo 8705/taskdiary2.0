@@ -34,6 +34,20 @@ ul {
 	}
 }
 
+li.list-group-item.separator {
+	padding: 1px 0 0px 17px;
+	background-color: #3C3C3C;
+	height: 18px;
+	font-size: 10px;
+	.display {
+		color: #FFF;
+	}
+	.todo-destroy {
+		top: 3px !important;
+		right: 9px !important;
+	}
+}
+
 // DnD
 .over {
 	border:3px dotted #F97676 !important;

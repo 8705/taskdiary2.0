@@ -54,6 +54,12 @@ $(function(){
     // appending its element to the `<ul>`.
     addOne: function(todo) {
       var view = new MyApp.Views.Task({model: todo});
+
+      // statusチェックが入っていたらliにクラス追加
+      if (view.model.attributes.status === 1) {
+        view.$el.addClass('separator');
+      }
+
       this.todaysList.append(view.render().el);
     },
 

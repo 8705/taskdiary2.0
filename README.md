@@ -14,8 +14,6 @@ $ npm init
 
 $ npm install --save-dev gulp gulp-handlebars gulp-wrap gulp-declare gulp-concat
 
-$ npm hbs
-
 // 監視
 $ gulp
 

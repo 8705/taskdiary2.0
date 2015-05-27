@@ -13,3 +13,7 @@
 /tmp
 
 /config/database.yml
+
+#gulp
+/node_modules
+/package.json

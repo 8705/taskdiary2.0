@@ -17,9 +17,11 @@
 //= require backbone
 //= require lodash
 //= require json2
+//= require handlebars
 //= require backbone.localStorage.js
 //= require backbonejs/setting
 //= require ./backbonejs/namespace.js
+//= require ./backbonejs/layout.js
 //= require ./backbonejs/helper.js
 //= require_tree ./backbonejs/models
 //= require_tree ./backbonejs/collections

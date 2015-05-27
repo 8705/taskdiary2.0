@@ -10,7 +10,7 @@ $(function(){
     attributes : {'draggable':true},
 
     // Cache the template function for a single item.
-    template: _.template($('#item-template').html()),
+    tmpl: MyApp.Templates.task,
 
     counter: 0,
 
@@ -40,7 +40,9 @@ $(function(){
 
     // Re-render the titles of the todo item.
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+      var json = this.model.toJSON();
+      json.status = json.status !== 1;
+      this.$el.html(this.tmpl(json));
       this.$el.toggleClass('done', this.model.is_done());
       this.input = this.$('.edit');
       return this;

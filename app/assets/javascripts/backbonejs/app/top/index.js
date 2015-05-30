@@ -1,23 +1,47 @@
+//= require ../../namespace.js
+//= require ../../layout.js
+//= require ../../helper.js
+//= require ../../models/task.js
+//= require ../../collections/todaylist.js
+//= require ../../views/task.js
+//= require ../../views/addtask.js
+//= require ../../views/header.js
+//= require ../../views/footer.js
+//= require ../../templates/layout.js
+
 $(function(){
 
   // Our overall **AppView** is the top-level piece of UI.
   MyApp.App = Backbone.View.extend({
 
-    // Instead of generating a new element, bind to the existing skeleton of
-    // the App already present in the HTML.
-    el: $("#todoapp"),
+    el: $("#app"),
 
-    // Delegated events for creating new items, and clearing completed ones.
+    tmpl: MyApp.Templates.layout,
+
     events: {
       "keypress #task_title":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete"
     },
 
-    // At initialization we bind to the relevant events on the `Todays`
-    // collection, when items are added or changed. Kick things off by
-    // loading any preexisting todos that might be saved in *localStorage*.
     initialize: function() {
+
+      MyApp.mediator = {};
+      _.extend(MyApp.mediator, Backbone.Events);
+
+      this.$el.html(this.tmpl());
+
+      this.header = new MyApp.Views.Header({
+        el: this.$el.find('#header')
+      });
+
+      this.addtask = new MyApp.Views.Addtask({
+        el: this.$el.find('#addTask')
+      });
+
+      this.footer = new MyApp.Views.Footer({
+        el: this.$el.find('#footer')
+      });
 
       this.task_title  = this.$("#task_title");
       this.task_status = this.$("#task_status");

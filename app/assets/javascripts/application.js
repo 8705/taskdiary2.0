@@ -20,10 +20,4 @@
 //= require handlebars
 //= require backbone.localStorage.js
 //= require backbonejs/setting
-//= require ./backbonejs/namespace.js
-//= require ./backbonejs/layout.js
-//= require ./backbonejs/helper.js
-//= require_tree ./backbonejs/models
-//= require_tree ./backbonejs/collections
-//= require_tree ./backbonejs/views
-//= require_tree ./templates
+//= require_tree ./backbonejs/app

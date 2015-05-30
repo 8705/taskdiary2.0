@@ -1,13 +1,16 @@
 this["MyApp"] = this["MyApp"] || {};
 this["MyApp"]["Templates"] = this["MyApp"]["Templates"] || {};
+this["MyApp"]["Templates"]["addtask"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<input id=\"task_status\" type=\"checkbox\" value=\"1\">\n<input id=\"task_title\" class=\"form-control input-lg\" type=\"text\" placeholder=\"What needs to be done?\">";
+},"useData":true});
 this["MyApp"]["Templates"]["footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div id=\"footer\" class=\"row\">copyright 8705.co</div>";
+    return "<div id=\"footer\">copyright 8705.co</div>";
 },"useData":true});
 this["MyApp"]["Templates"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"navbar-header\">\n  <a class=\"navbar-brand\" href=\"#\">TaskDiary</a>\n</div>";
 },"useData":true});
 this["MyApp"]["Templates"]["layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<nav id=\"header-wrapper\" class=\"navbar navbar-default\">\n  <div id=\"header\" class=\"container-fluid\"></div>\n</nav>\n\n\n<div id=\"todoapp\" >\n  <div class=\"row\">\n    <div id=\"addTask\" class=\"col-md-8 col-md-offset-3 form-inline\">\n      <input id=\"task_status\" type=\"checkbox\" value=\"1\">\n      <input id=\"task_title\" class=\"form-control input-lg\" type=\"text\" placeholder=\"What needs to be done?\">\n    </div>\n  </div>\n  <div id=\"content\" class=\"row\">\n    <div id=\"today\" class=\"col-md-5 col-md-offset-3\">\n      <h2>tasks</h2>\n      <ul id=\"todayTasks\" class=\"list-group\"></ul>\n    </div>\n  </div>\n</div>";
+    return "<nav id=\"header-wrapper\" class=\"navbar navbar-default\">\n  <div id=\"header\" class=\"container-fluid\"></div>\n</nav>\n\n\n<div id=\"todoapp\" >\n  <div class=\"row\">\n    <div id=\"addTask\" class=\"col-md-8 col-md-offset-3 form-inline\"></div>\n  </div>\n  <div id=\"content\" class=\"row\">\n    <div id=\"today\" class=\"col-md-5 col-md-offset-3\">\n      <h2>tasks</h2>\n      <ul id=\"todayTasks\" class=\"list-group\"></ul>\n    </div>\n  </div>\n</div>\n<div id=\"footer\"></div>";
 },"useData":true});
 this["MyApp"]["Templates"]["task"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return " done ";

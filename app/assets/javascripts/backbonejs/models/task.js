@@ -1,11 +1,9 @@
-// Our basic **Todo** model has `title`, `order`, and `done` attributes.
   MyApp.Models.Todo = Backbone.Model.extend({
 
-    // Default attributes for the todo item.
     defaults: function() {
       return {
         title: "empty todo...",
-        seq: Todays.nextSeq(),
+        seq: 0,
         done_at: null,
         status: 0,
       };
@@ -19,7 +17,6 @@
       this.save('id', id, {silent: true});
     },
 
-    // Toggle the `done_at` state of this todo item.
     toggle: function() {
       if ( this.is_done() ) {
 

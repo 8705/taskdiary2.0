@@ -68,6 +68,11 @@ GEM
       railties (>= 3.0.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    handlebars_assets (0.20.2)
+      execjs (~> 2.0)
+      multi_json (~> 1.0)
+      sprockets (>= 2.0.0, < 4.0)
+      tilt (~> 1.2)
     i18n (0.7.0)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
@@ -183,6 +188,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   factory_girl_rails (~> 4.5)
+  handlebars_assets
   jbuilder (~> 2.0)
   jquery-rails
   mysql2

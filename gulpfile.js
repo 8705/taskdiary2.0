@@ -6,7 +6,7 @@ var concat 		= require('gulp-concat');
 
 // path
 var hbs = 'app/assets/hbs/*.hbs';
-var dest = 'app/assets/javascripts/backbonejs/';
+var dest = 'app/assets/javascripts/backbonejs/templates';
 
 gulp.task('hbs', function(){
   gulp.src(hbs)

@@ -9,6 +9,8 @@
 //= require ../../views/header.js
 //= require ../../views/footer.js
 //= require ../../templates/layout.js
+//= require ../../router.js
+
 
 $(function(){
 
@@ -67,5 +69,6 @@ $(function(){
   });
 
   var App = new MyApp.App();
+  Backbone.history.start({ pushState:true});
 
 });

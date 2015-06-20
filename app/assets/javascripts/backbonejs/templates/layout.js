@@ -7,7 +7,7 @@ this["MyApp"]["Templates"]["footer"] = Handlebars.template({"compiler":[6,">= 2.
     return "<div id=\"footer\">copyright 8705.co</div>";
 },"useData":true});
 this["MyApp"]["Templates"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"navbar-header\">\n  <a class=\"navbar-brand\" href=\"#\">TaskDiary</a>\n</div>";
+    return "<div class=\"navbar-header\">\n  <a class=\"navbar-brand\" href=\"#\">TaskDiary</a>\n  <span class=\"btn btn-success calender\">calender</span>\n</div>";
 },"useData":true});
 this["MyApp"]["Templates"]["layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<nav id=\"header-wrapper\" class=\"navbar navbar-default\">\n  <div id=\"header\" class=\"container-fluid\"></div>\n</nav>\n\n\n<div id=\"todoapp\" >\n  <div class=\"row\">\n    <div id=\"addTask\" class=\"col-md-8 col-md-offset-3 form-inline\"></div>\n  </div>\n  <div id=\"content\" class=\"row\">\n    <div id=\"today\" class=\"col-md-5 col-md-offset-3\"></div>\n  </div>\n</div>\n<div id=\"footer\"></div>";
